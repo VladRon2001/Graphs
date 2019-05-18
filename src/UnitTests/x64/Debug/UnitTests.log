@@ -1,0 +1,5 @@
+﻿UnitTests.obj : error LNK2019: unresolved external symbol "public: static class testing::UnitTest * __cdecl testing::UnitTest::GetInstance(void)" (?GetInstance@UnitTest@testing@@SAPEAV12@XZ) referenced in function "int __cdecl RUN_ALL_TESTS(void)" (?RUN_ALL_TESTS@@YAHXZ)
+UnitTests.obj : error LNK2019: unresolved external symbol "public: int __cdecl testing::UnitTest::Run(void)" (?Run@UnitTest@testing@@QEAAHXZ) referenced in function "int __cdecl RUN_ALL_TESTS(void)" (?RUN_ALL_TESTS@@YAHXZ)
+UnitTests.obj : error LNK2019: unresolved external symbol "void __cdecl testing::InitGoogleTest(int *,char * *)" (?InitGoogleTest@testing@@YAXPEAHPEAPEAD@Z) referenced in function main
+E:\GitProjects\Graphs\src\packages\gtest.1.7.0\build\native\..\..\\build\native\lib\Debug\gtestd.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+E:\GitProjects\Graphs\src\x64\Debug\UnitTests.exe : fatal error LNK1120: 3 unresolved externals
