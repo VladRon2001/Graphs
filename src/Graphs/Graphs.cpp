@@ -142,15 +142,15 @@ std::string printCityThatDontHaveRoad(Matrix matrix, const std::vector<std::stri
 	return result;
 }
 
-int checkForDoubleLoop(const std::vector<int>& path, int curCity)
+bool checkForDoubleLoop(const std::vector<int>& path, int curCity)
 {
 	int n = path.size() - 1;
 	for (int i = 0; i < n; i++)
 	{
 		if (curCity == path[i])
-			return 1;
+			return true;
 	}
-	return 0;
+	return false;
 }
 
 void createPath(const Matrix& matrix, std::vector<std::vector<int>>& paths, std::vector<int> current_path, int fromCity, int toCity)
@@ -161,7 +161,7 @@ void createPath(const Matrix& matrix, std::vector<std::vector<int>>& paths, std:
 		return;
 	}
 
-	if (checkForDoubleLoop(current_path, fromCity) == 1)
+	if (checkForDoubleLoop(current_path, fromCity))
 	{
 		return;
 	}
@@ -195,6 +195,7 @@ std::string searchAllRoadFromAToB(Matrix matrix, std::vector<std::string> name_c
 
 	std::vector<std::vector<int>> paths;
 	std::vector<int> current_path;
+	current_path.push_back(number_find_from);
 	createPath(matrix, paths, current_path, number_find_from, number_find_to);
 
 	std::string result;
@@ -202,7 +203,6 @@ std::string searchAllRoadFromAToB(Matrix matrix, std::vector<std::string> name_c
 	for (unsigned int i = 0; i < paths.size(); ++i)
 	{
 		unsigned int j;
-		result += name_city[number_find_from] + "->";
 		for (j = 0; j < paths[i].size() - 1; ++j)
 		{
 			result += name_city[paths[i][j]] + "->";
